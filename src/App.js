@@ -1,24 +1,173 @@
-// All years divisible by 400 ARE leap years 
-// (so, for example, 2000 was indeed a leap year),
-
-// All years divisible by 100 but not by 400 are NOT leap years 
-// (so, for example, 1700, 1800, and 1900 were NOT leap years, NOR will 2100 be a leap year),
-
-// All years divisible by 4 but not by 100 ARE leap years 
-// (e.g., 2008, 2012, 2016),
-
-// All years not divisible by 4 are NOT leap years 
-// (e.g. 2017, 2018, 2019).
-
 export class App {
 
-  calendarLeapYears (year) {
+  arabicToRomanNumberConversor (number) {
 
-    if (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) {
-      return 'Leap year' 
-    } else if (year % 4 !== 0 || (year % 100 === 0 && year % 400 !== 0)) {
-      return 'Not leap year'
-    } 
+    const numberLength = number.toString().length;
+    const stringNumber = number.toString()
 
-}
+    const numbersFrom1To9 = (n) => {
+
+      switch (n) {
+        case 1:
+          return 'I'
+          break;
+        case 2:
+          return'II'
+          break;
+        case 3:
+          return 'III'
+          break;
+        case 4:
+          return 'IV'
+          break;
+        case 5:
+          return 'V'
+          break;
+        case 6:
+          return 'VI'
+          break;
+        case 7:
+          return 'VII'
+          break;
+        case 8:
+          return 'VIII'
+          break;
+        case 9:
+          return 'IX'
+          break;
+        case 0:
+          return ''
+          break;
+        default:
+          console.log('')
+          break;
+      }
+  }
+  const numbersFrom10To99 = (n2) => {
+
+    switch (n2) {
+      case 1:
+        return 'X'
+        break;
+      case 2:
+        return'XX'
+        break;
+      case 3:
+        return 'XXX'
+        break;
+      case 4:
+        return 'XL'
+        break;
+      case 5:
+        return 'L'
+        break;
+      case 6:
+        return 'LX'
+        break;
+      case 7:
+        return 'LXX'
+        break;
+      case 8:
+        return 'LXXX'
+        break;
+      case 9:
+        return 'XC'
+        break;
+      case 0:
+        return ''
+        break;
+      default:
+        console.log('')
+        break;
+    }
+  }
+
+  const numberFrom100To999 = (n3) => {
+
+    switch (n3) {
+      case 1:
+        return 'C'
+        break;
+      case 2:
+        return'CC'
+        break;
+      case 3:
+        return 'CCC'
+        break;
+      case 4:
+        return 'CD'
+        break;
+      case 5:
+        return 'D'
+        break;
+      case 6:
+        return 'DC'
+        break;
+      case 7:
+        return 'DCC'
+        break;
+      case 8:
+        return 'DCCC'
+        break;
+      case 9:
+        return 'CM'
+        break;
+      case 0:
+        return ''
+        break;
+      default:
+        console.log('')
+        break;
+    }
+  }
+
+  const numberFrom1000to3999 = (n4) => {
+
+    switch (n4) {
+      case 1:
+        return 'M'
+        break;
+      case 2:
+        return'MM'
+        break;
+      case 3:
+        return 'MMM'
+        break;
+      default:
+        console.log('')
+        break;
+    }
+  }
+
+    if (numberLength === 1) {
+      return numbersFrom1To9(number)
+    } else if (numberLength === 2) {
+
+      let firstNumber = numbersFrom10To99(Number(stringNumber.charAt(0)));
+      let secondNumber = numbersFrom1To9(Number(stringNumber.charAt(1)));
+      let finalNumber = firstNumber += secondNumber
+      
+      return finalNumber;      
+    } else if(numberLength === 3) {
+      let firstNumber = numberFrom100To999(Number(stringNumber.charAt(0)))
+      let secondNumber = numbersFrom10To99(Number(stringNumber.charAt(1)))
+      let thirdNumber = numbersFrom1To9(Number(stringNumber.charAt(2)))
+
+      let finalNumber = firstNumber += secondNumber += thirdNumber
+
+      return finalNumber
+
+    } else if (numberLength === 4) {
+      let firstNumber = numberFrom1000to3999(Number(stringNumber.charAt(0)))
+      let secondNumber = numberFrom100To999(Number(stringNumber.charAt(1)))
+      let thirdNumber = numbersFrom10To99(Number(stringNumber.charAt(2)))
+      let fourthNumber = numbersFrom1To9(Number(stringNumber.charAt(3)))
+
+      let finalNumber = firstNumber += secondNumber += thirdNumber += fourthNumber
+
+      return finalNumber
+
+    }
+
+  }
 }
