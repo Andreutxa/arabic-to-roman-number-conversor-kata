@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { App } from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App tests', () => {
+  const app = new App();
+
+  it ('Test 1: Should print => Leap year', () => {
+    const response = app.calendarLeapYears(2000);
+    expect(response).toBe('Leap year')
+  })
+  
+})
