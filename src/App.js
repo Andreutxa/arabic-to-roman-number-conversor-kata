@@ -139,34 +139,39 @@ export class App {
     }
   }
 
+    let lastNumber = numbersFrom1To9(Number(stringNumber.charAt(stringNumber.length-1)))
+    let penultimateNumber = numbersFrom10To99(Number(stringNumber.charAt(stringNumber.length-2)))
+
     if (numberLength === 1) {
-      return numbersFrom1To9(number)
+      return lastNumber
     } else if (numberLength === 2) {
 
-      let firstNumber = numbersFrom10To99(Number(stringNumber.charAt(0)));
-      let secondNumber = numbersFrom1To9(Number(stringNumber.charAt(1)));
-      let finalNumber = firstNumber += secondNumber
+      return penultimateNumber += lastNumber
+
+      // let firstNumber = numbersFrom10To99(Number(stringNumber.charAt(0)));
+      // let secondNumber = numbersFrom1To9(Number(stringNumber.charAt(1)));
+      // let finalNumber = firstNumber += secondNumber
       
-      return finalNumber;      
+      // return finalNumber;      
     } else if(numberLength === 3) {
       let firstNumber = numberFrom100To999(Number(stringNumber.charAt(0)))
-      let secondNumber = numbersFrom10To99(Number(stringNumber.charAt(1)))
-      let thirdNumber = numbersFrom1To9(Number(stringNumber.charAt(2)))
+      // let secondNumber = numbersFrom10To99(Number(stringNumber.charAt(1)))
+      // let thirdNumber = numbersFrom1To9(Number(stringNumber.charAt(2)))
 
-      let finalNumber = firstNumber += secondNumber += thirdNumber
+      // let finalNumber = firstNumber += secondNumber += thirdNumber
 
-      return finalNumber
+      return firstNumber += penultimateNumber += lastNumber
 
     } else if (numberLength === 4) {
       let firstNumber = numberFrom1000to3999(Number(stringNumber.charAt(0)))
       let secondNumber = numberFrom100To999(Number(stringNumber.charAt(1)))
-      let thirdNumber = numbersFrom10To99(Number(stringNumber.charAt(2)))
-      let fourthNumber = numbersFrom1To9(Number(stringNumber.charAt(3)))
+      // let thirdNumber = numbersFrom10To99(Number(stringNumber.charAt(2)))
+      // let fourthNumber = numbersFrom1To9(Number(stringNumber.charAt(3)))
 
-      let finalNumber = firstNumber += secondNumber += thirdNumber += fourthNumber
+      // let finalNumber = firstNumber += secondNumber += thirdNumber += fourthNumber
 
-      return finalNumber
-
+      // return finalNumber
+      return firstNumber += secondNumber += penultimateNumber += lastNumber
     }
 
   }
